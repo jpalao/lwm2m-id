@@ -61,13 +61,16 @@ DEFS.getOid = function (oid) {
     if (!isValidArgType(oid))
         throw new TypeError('oid should be a number or a string.');
 
-    var oidNumber = parseInt(oid),
-        oidItem;
+    var oidItem;
 
-    if (!isNaN(oidNumber))
-        oid = oidNumber;
-
-    oidItem = DEFS.Oid.get(oid);
+    if (oid.toString().match(/^[0-9]+/)) {
+        var oidNumber = parseInt(oid)
+        if (!isNaN(oidNumber))
+            oid = oidNumber;
+        oidItem = DEFS.Oid.get(oid);
+    } else {
+        oidItem = oid
+    }
 
     return oidItem;
 };
