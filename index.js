@@ -67,10 +67,8 @@ DEFS.getOid = function (oid) {
         var oidNumber = parseInt(oid)
         if (!isNaN(oidNumber))
             oid = oidNumber;
-        oidItem = DEFS.Oid.get(oid);
-    } else {
-        oidItem = oid
     }
+    oidItem = DEFS.Oid.get(oid);
 
     return oidItem;
 };
