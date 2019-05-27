@@ -63,7 +63,7 @@ DEFS.getOid = function (oid) {
 
     var oidItem;
 
-    if (oid.toString().match(/^[0-9]+/)) {
+    if (oid.toString().match(/^[0-9]+$/)) {
         var oidNumber = parseInt(oid)
         if (!isNaN(oidNumber))
             oid = oidNumber;
