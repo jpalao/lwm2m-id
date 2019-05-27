@@ -110,9 +110,11 @@ DEFS.getRid = function (oid, rid) {
             throw new TypeError('rid should be a number or a string.');
     }
 
-    ridNumber = parseInt(rid);
-    if (!isNaN(ridNumber))
-        rid = ridNumber;
+    if (rid.toString().match(/^[0-9]+/)) {
+        ridNumber = parseInt(rid);
+        if (!isNaN(ridNumber))
+            rid = ridNumber;
+    }
 
     if (typeof oid !== 'undefined') {           // searching in MDEFS.RIDOFOID
         if (!isValidArgType(oid))
